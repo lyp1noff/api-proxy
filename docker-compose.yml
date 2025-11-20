@@ -1,12 +1,12 @@
 services:
   api-proxy:
-    build:
-      dockerfile: ./Dockerfile
-    pull_policy: build
+    image: ghcr.io/lyp1noff/api-proxy:latest
     container_name: api-proxy
-    image: api-proxy:latest
+    pull_policy: always
     restart: always
     ports:
       - "127.0.0.1:8070:8000"
     environment:
       - WISE_API_TOKEN=${WISE_API_TOKEN}
+      - MONOBANK_TOKEN=${MONOBANK_TOKEN}
+      - INTERNAL_API_KEY=${INTERNAL_API_KEY}

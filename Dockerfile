@@ -11,4 +11,4 @@ RUN poetry install --no-interaction --no-ansi
 
 COPY . .
 
-CMD ["gunicorn", "src.api_proxy.main:app", "-k", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8000"]
+CMD ["uvicorn", "src.api_proxy.main:app", "--host", "0.0.0.0", "--port", "8000"]
